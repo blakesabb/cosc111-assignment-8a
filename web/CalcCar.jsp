@@ -12,7 +12,8 @@
 <BODY>
 You entered<BR>
 Car Price: $<%= user.getCarprice()%><BR>
-Your calculated values:<br>
+Your calculated values: <br>
 Monthly Payment: $<%= user.getMonthlyPayment()%><BR>
+<%= user.print()%>
 </BODY>
 </HTML>

@@ -1,5 +1,7 @@
 package user;
 
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -43,5 +45,24 @@ public class CarLoanData {
     public double getMonthlyPayment()
     {
         return (double)carprice / (double)loanlen;
+    }
+    
+    public String print()
+    {
+        double[] bal = new double[loanlen];
+        
+        String s = "";
+        bal[0] = carprice;
+        for (int i=1; i<loanlen; i++)
+        {
+            bal[i] = bal[i-1] - getMonthlyPayment();
+            bal[i] *= (1 + 8./12.0*0.01);
+            if (i%12 ==0)
+            {
+            s += "Month" + i + ": $" + String.format("%.2f",  bal[i]) + "\n<br>";
+            }
+        }
+        s += "Final balance: $" + String.format("%.2f", bal[loanlen - 1]);
+        return s;
     }
 }
