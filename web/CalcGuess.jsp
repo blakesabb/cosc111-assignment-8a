@@ -45,6 +45,7 @@
             <%
                 // Inform the user how many tries it has taken
                 out.println("Number of tries: " + guess.getTries());
+                out.print("History:" + guess.getAllGuesses() + "<br>");
             %>
         </h3> 
            
